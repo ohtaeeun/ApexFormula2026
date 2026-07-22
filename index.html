@@ -7,189 +7,480 @@
 <title>Apex Formula 2026</title>
 
 <style>
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#000;
-color:#fff;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
+    background:#050505;
+    color:white;
 }
 
-.screen{
-width:100%;
-height:100%;
-display:flex;
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(10px);
+}
+
+nav{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:2px;
+    color:#e10600;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#e10600;
+}
+
+
+/* HERO */
+
+.hero{
+
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.9)
+    ),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70")
+    center/cover;
+
+}
+
+
+.hero h1{
+
+    font-size:80px;
+    font-weight:900;
+    letter-spacing:5px;
+
+}
+
+
+.hero p{
+
+    margin-top:20px;
+    font-size:22px;
+    color:#ddd;
+
+}
+
+
+.btn{
+
+    display:inline-block;
+    margin-top:40px;
+    padding:15px 40px;
+
+    background:#e10600;
+    color:white;
+    text-decoration:none;
+
+    font-weight:bold;
+
+    border-radius:30px;
+
+    transition:.3s;
+
+}
+
+
+.btn:hover{
+
+    transform:scale(1.08);
+    background:white;
+    color:#e10600;
+
+}
+
+
+
+/* SECTION */
+
+section{
+
+    padding:100px 10%;
+}
+
+
+.title{
+
+    font-size:45px;
+    margin-bottom:40px;
+    color:#e10600;
+
+}
+
+
+
+/* CARDS */
+
+.cards{
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+
+
+.card{
+
+    background:#111;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    border:1px solid #222;
+
+    transition:.4s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-15px);
+
+    border-color:#e10600;
+
+}
+
+
+
+.card h3{
+
+    margin-bottom:15px;
+
+    font-size:25px;
+
+}
+
+
+
+/* CAR */
+
+.car{
+
+    height:300px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #e10600,
+    #111
+    );
+
+    border-radius:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:50px;
+
+    font-weight:900;
+
+    letter-spacing:5px;
+
+}
+
+
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#000;
+
+    color:#777;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+
+nav{
+
 flex-direction:column;
-justify-content:center;
-align-items:center;
-background:linear-gradient(180deg,#000,#111);
+
 }
 
-h1{
-font-size:64px;
-margin-bottom:50px;
-letter-spacing:3px;
-}
 
-.menu{
-display:flex;
-flex-direction:column;
-gap:20px;
-width:300px;
-}
+nav a{
 
-button{
-padding:18px;
-font-size:24px;
-background:#e10600;
-color:white;
-border:none;
-border-radius:12px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-background:#ff2b2b;
-}
-
-.version{
-position:absolute;
-bottom:20px;
 font-size:14px;
-color:#777;
+
+margin:10px;
+
 }
 
-#garage,
-#settings,
-#credits{
-display:none;
 }
 
-.back{
-margin-top:40px;
-background:#333;
-}
+
 </style>
 
 </head>
+
+
+
 <body>
 
-<div id="menu" class="screen">
 
-<h1>Apex Formula 2026</h1>
 
-<div class="menu">
+<header>
 
-<button onclick="openPage('racing')">🏎 RACING</button>
+<nav>
 
-<button onclick="openPage('garage')">🔧 GARAGE</button>
+<div class="logo">
+APEX FORMULA 2026
+</div>
 
-<button onclick="openPage('settings')">⚙ SETTINGS</button>
 
-<button onclick="openPage('credits')">👥 CREDITS</button>
+<div>
+
+<a href="#about">ABOUT</a>
+<a href="#car">CAR</a>
+<a href="#team">TEAM</a>
 
 </div>
 
-<div class="version">
-Version 0.2 Alpha
-</div>
+</nav>
 
-</div>
+</header>
 
-<div id="racing" class="screen" style="display:none;">
 
-<h1 style="color:#e10600;">RACING</h1>
 
-<p>차량 선택 화면은 다음 업데이트에서 추가됩니다.</p>
 
-<button class="back" onclick="goHome()">
-← BACK
-</button>
 
-</div>
+<section class="hero">
 
-<div id="garage" class="screen">
 
-<h1>GARAGE</h1>
+<div>
 
-<p>준비 중...</p>
 
-<button class="back" onclick="goHome()">
-← BACK
-</button>
+<h1>
+APEX FORMULA
+</h1>
 
-</div>
 
-<div id="settings" class="screen">
-
-<h1>SETTINGS</h1>
-
-<p>준비 중...</p>
-
-<button class="back" onclick="goHome()">
-← BACK
-</button>
-
-</div>
-
-<div id="credits" class="screen">
-
-<h1>CREDITS</h1>
-
-<p><h1>CREDITS</h1>
-
-<p>Development Team</p>
-<p>2 Members</p>
-
-<button class="back" onclick="goHome()">
-← BACK
-</button>
 <p>
+The Future Racing Experience 2026
+</p>
 
-<button class="back" onclick="goHome()">
-← BACK
-</button>
+
+<a class="btn" href="#about">
+ENTER
+</a>
+
 
 </div>
 
-<script>
 
-function openPage(page){
+</section>
 
-document.getElementById("menu").style.display="none";
 
-document.getElementById("racing").style.display="none";
-document.getElementById("garage").style.display="none";
-document.getElementById("settings").style.display="none";
-document.getElementById("credits").style.display="none";
 
-document.getElementById(page).style.display="flex";
 
-}
 
-function goHome(){
 
-document.getElementById("racing").style.display="none";
-document.getElementById("garage").style.display="none";
-document.getElementById("settings").style.display="none";
-document.getElementById("credits").style.display="none";
 
-document.getElementById("menu").style.display="flex";
+<section id="about">
 
-}
 
-</script>
+<h2 class="title">
+ABOUT
+</h2>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+Project
+</h3>
+
+<p>
+Apex Formula 2026은
+웹 기반 차세대 포뮬러 레이싱 프로젝트입니다.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Vision
+</h3>
+
+<p>
+속도와 기술,
+디자인을 결합한 새로운 레이싱 경험을 목표로 합니다.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Development
+</h3>
+
+<p>
+개발 팀 구성:
+2명
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section id="car">
+
+
+<h2 class="title">
+2026 MACHINE
+</h2>
+
+
+<div class="car">
+
+AF-01
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="team">
+
+
+<h2 class="title">
+TEAM
+</h2>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+Apex Racing Team
+</h3>
+
+<p>
+Engineers & Designers
+<br>
+Team Members : 2
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+© 2026 Apex Formula Project
+
+</footer>
+
+
 
 </body>
+
 </html>
